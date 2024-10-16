@@ -35,7 +35,7 @@ if st.session_state.screen_num == 2:
     timer_seconds = st.number_input("שניות", min_value=0, value=10)
 
     # Convert the time to seconds
-    total_seconds = int(timer_minutes * 60 + timer_minutes * 60 + timer_seconds)
+    total_seconds = int(timer_hours * 3600 + timer_minutes * 60 + timer_seconds)
     if st.button("Start Countdown"):
         st.session_state.screen_num = 3
         st.session_state.total_seconds = total_seconds
@@ -50,7 +50,7 @@ if st.session_state.screen_num == 3:
     with st.empty():
         for remaining in range(st.session_state.total_seconds, 0, -1):
             minutes, seconds = divmod(remaining, 60)
-            st.subheader(f"{minutes:02d}:{seconds:02d}")
+            st.subheader(f"{minutes:03d}:{seconds:02d}")
             time.sleep(1)
         st.subheader("00:00")
     st.session_state.screen_num = 4
