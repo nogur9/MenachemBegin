@@ -33,23 +33,19 @@ if st.session_state.screen_num == 2:
 
     # Convert the time to seconds
     total_seconds = int(timer_minutes * 60 + timer_minutes * 60 + timer_seconds)
-    print(f"before button {st.session_state.screen_num =}")
     if st.button("Start Countdown"):
         st.session_state.screen_num = 3
         st.session_state.total_seconds = total_seconds
         st.rerun()
 
-    # ---  Screen III  ---
+# ---  Screen III  ---
 
 if st.session_state.screen_num == 3:
     # Countdown mechanism
     image = Image.open("images/Menachem_Begin_sitting.jpg")  # Make sure you have a suitable image file
     st.image(image, caption="Stay positive and keep smiling! 😊")
-    print(f"in stage 3 {st.session_state.screen_num =}")
     with st.empty():
         for remaining in range(st.session_state.total_seconds, 0, -1):
-            print(f"counting in 3 {st.session_state.screen_num =}")
-
             minutes, seconds = divmod(remaining, 60)
             st.subheader(f"{minutes:02d}:{seconds:02d}")
             time.sleep(1)
@@ -57,10 +53,10 @@ if st.session_state.screen_num == 3:
     st.session_state.screen_num = 4
     st.rerun()
 
+#  ---  Screen IV  ---
 
-
-    # ---  Screen IV  ---
 if st.session_state.screen_num == 4:
     image = Image.open("images/Begin.jpg")  # Make sure you have a suitable image file
     st.image(image, width=400)
     st.write("Stay positive and keep smiling! 😊")
+
