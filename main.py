@@ -51,7 +51,7 @@ if st.session_state.screen_num == 3:
         for remaining in range(st.session_state.total_seconds, 0, -1):
             minutes, seconds = divmod(remaining, 60)
             st.subheader(f"{minutes:03d}:{seconds:02d}")
-            time.sleep(1)
+            time.sleep(1.0)
         st.subheader("00:00")
     st.session_state.screen_num = 4
     st.rerun()
